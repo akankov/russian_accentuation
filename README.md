@@ -30,8 +30,20 @@ The system uses the spaCy NLP library with a Russian language model to tokenize 
 ## Usage
 
 1. Place your Russian text in the `in.txt` file
-2. Run the script:
+2. Run the script using one of these methods:
    ```bash
+   # Option 1: Direct execution with Python
+   python stress.py
+
+   # Option 2: Using the virtual environment's Python
+   venv/bin/python stress.py
+
+   # Option 3: After activating the virtual environment (bash/zsh)
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python stress.py
+
+   # Option 4: After activating the virtual environment (fish shell)
+   source venv/bin/activate.fish
    python stress.py
    ```
 3. The accentuated text will be:
