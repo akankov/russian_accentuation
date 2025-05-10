@@ -47,7 +47,8 @@ The system uses the spaCy NLP library with a Russian language model to tokenize 
    python stress.py
    ```
 3. The accentuated text will be:
-   - Written to `out.txt`
+   - Written to `out.txt` with accent marks (е.g., "опу́шке")
+   - Written to `out_pluses.txt` with plus signs before stressed vowels (e.g., "оп+ушке")
    - Printed to the console
 
 ## How It Works
@@ -64,7 +65,8 @@ The system uses the spaCy NLP library with a Russian language model to tokenize 
 
 - `stress.py`: Main script for text accentuation
 - `in.txt`: Input text file in Russian
-- `out.txt`: Output text file with stress marks added
+- `out.txt`: Output text file with stress marks added (е.g., "опу́шке")
+- `out_pluses.txt`: Output text file with plus signs before stressed vowels (e.g., "оп+ушке")
 - `lemmas.dat`: Binary pickle file containing Russian lemmas dictionary
 - `wordforms.dat`: Binary pickle file containing Russian word forms dictionary
 

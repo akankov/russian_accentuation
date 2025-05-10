@@ -136,6 +136,23 @@ def accentuate(text, wordforms, lemmas):
     return res
 
 
+def convert_accents_to_pluses(text):
+    """
+    Convert characters with accent (e.g., 'а́') to '+' sign before the character without accent (e.g., '+а')
+    """
+    result = ""
+    i = 0
+    while i < len(text):
+        # Check if the current character is followed by the combining acute accent (U+0301)
+        if i + 1 < len(text) and ord(text[i+1]) == 0x0301:
+            result += "+" + text[i]
+            i += 2  # Skip both the character and the accent
+        else:
+            result += text[i]
+            i += 1
+    return result
+
+
 lemmas, wordforms = load()
 introduce_special_cases_from_dictionary(wordforms)
 
@@ -147,6 +164,12 @@ res = accentuate(sentence, wordforms, lemmas)
 
 f = open("out.txt", mode='w', encoding='utf-8')
 f.write(res)
+f.close()
+
+# Convert accents to plus signs and save to out_pluses.txt
+res_pluses = convert_accents_to_pluses(res)
+f = open("out_pluses.txt", mode='w', encoding='utf-8')
+f.write(res_pluses)
 f.close()
 
 print(res)
